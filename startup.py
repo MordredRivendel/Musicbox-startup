@@ -6,13 +6,13 @@ import sys
 # set NetworkPath
 npath = '//IP_ADDRESSE_FREIGABE/FREIGABENAME'
 # set LocalPath
-lpath = '/mnt/smb/'
+lpath = '/var/lib/mopidy/media/network'
 # set User
 username = ''
 # set Password
 password = ''
 
-if path != '':
+if npath != '':
 	os.system ("mount -t cifs -o user=" + username + ",password=" + password + ",rw,file_mode=0777,dir_mode=0777 " +  npath + " " + lpath
 
 
@@ -21,11 +21,11 @@ if path != '':
 		   
 # Startup Volume
 # set Startup Volume
-startvolume = '' # 1 - 100
+startupvolume = 40 # 1 - 100
 		   
 if startupvolume != '':
 	client = connectMPD()
-	client.setvol(startvolume)
+	client.setvol(startupvolume)
 	client.close()	
 		   
 		   
